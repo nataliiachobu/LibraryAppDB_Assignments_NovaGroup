@@ -18,6 +18,7 @@ public class US05StepDefinitionsNC {
         actualResult = DB_Util.getFirstRowFirstColumn();
     }
 
+
     @Then("verify {string} is the most popular book genre.")
     public void verify_is_the_most_popular_book_genre(String genreType) {
         String expectedResult = genreType;
