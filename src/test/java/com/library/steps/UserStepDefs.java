@@ -28,6 +28,7 @@ public class UserStepDefs {
         actualUserCount = DB_Util.getFirstRowFirstColumn();
         System.out.println(actualUserCount);
     }
+
     @Then("verify all users has unique ID")
     public void verify_all_users_has_unique_id() {
         String query="select count(distinct id) from users";

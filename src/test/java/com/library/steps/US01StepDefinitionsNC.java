@@ -12,31 +12,7 @@ public class US01StepDefinitionsNC {
     String expectedDataCount;
     String actualDataCount;
     List<String> actualDataColumn;
-    @Given("Establish the database connection")
-    public void establish_the_database_connection() {
-        // DB_Util.createConnection(); we added connection in our Hook class in @Before
 
-    }
-
-    @When("Execute query to get all IDs from users")
-    public void execute_query_to_get_all_i_ds_from_users() {
-        DB_Util.runQuery("select count(id) from users");
-        actualDataCount = DB_Util.getFirstRowFirstColumn();
-        System.out.println(actualDataCount);
-
-
-    }
-
-    @Then("verify all users has unique ID")
-    public void verify_all_users_has_unique_id() {
-        String query = "select count(distinct id) from users";
-        DB_Util.runQuery(query);
-        expectedDataCount=DB_Util.getFirstRowFirstColumn();
-        Assert.assertEquals(expectedDataCount,actualDataCount);
-
-        System.out.println("expectedData = "+expectedDataCount+", actualDataCount = "+actualDataCount);
-        // DB_Util.destroy(); connection will be closed in the Hooks class in @After
-    }
     @When("Execute query to get all columns")
     public void execute_query_to_get_all_columns() {
         DB_Util.runQuery("select * from users");
