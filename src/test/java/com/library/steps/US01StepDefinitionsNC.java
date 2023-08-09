@@ -12,7 +12,9 @@ public class US01StepDefinitionsNC {
     String expectedDataCount;
     String actualDataCount;
     List<String> actualDataColumn;
-    @Given("Establish the database connection")
+
+    //removing duplicate step definition TEMPORARY
+  /*  @Given("Establish the database connection")
     public void establish_the_database_connection() {
         // DB_Util.createConnection(); we added connection in our Hook class in @Before
 
@@ -36,7 +38,8 @@ public class US01StepDefinitionsNC {
 
         System.out.println("expectedData = "+expectedDataCount+", actualDataCount = "+actualDataCount);
         // DB_Util.destroy(); connection will be closed in the Hooks class in @After
-    }
+    }*/
+
     @When("Execute query to get all columns")
     public void execute_query_to_get_all_columns() {
         DB_Util.runQuery("select * from users");
