@@ -72,15 +72,18 @@ public class US06StepDefinitionsAB {
     @Then("verify {string} information must match with DB")
     public void verify_information_must_match_with_db(String string) {
 
+        //Store query
         String query = "select name from books where name = '"+string+"';";
 
 
+        //Run query using utility class
         DB_Util.runQuery(query);
 
+        //get first row first column results and print
         String actualResult = DB_Util.getFirstRowFirstColumn();
-
         System.out.println("actualResult = " + actualResult);
 
+        //Complete assertion
         Assert.assertEquals(actualResult, string);
 
     }

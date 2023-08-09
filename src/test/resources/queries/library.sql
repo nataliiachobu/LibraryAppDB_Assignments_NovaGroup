@@ -31,3 +31,9 @@ select name from book_categories;
 #US06
 select name from books
 where name = 'Jane Doe';
+
+select bc.name, count(bb.id)
+from book_borrow bb
+         join books b on bb.book_id = b.id
+         join book_categories bc on bc.id = b.book_category_id
+group by bc.name order by count(bb.id) desc;
